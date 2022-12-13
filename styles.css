@@ -1,0 +1,234 @@
+/*UNIVERSAL*/
+
+html, body {
+  font-family: Helvetica;
+  font-size: 22px;
+  color: seashell;
+  background-color: black;
+  opacity: 0.9;
+}
+
+a {
+  color: seashell;
+  text-decoration: none;
+}
+
+h2, h3, h4 {
+  margin: 0;
+  padding: 0.55rem; /*10px*/
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.2rem; /*28px*/
+}
+
+
+/*FLEXBOX CONTAINER*/
+
+.flex-container {
+  display: flex;
+  justify-content: center; /*defines how the browser distributes space between and around content items aong the main-axis of a flex container*/
+  /*without this line, the 3 coffee locations would not be centered*/
+  flex-wrap: wrap;
+  /*flex-direction: row;*/ /*not needed as that's kinda by default if we have */
+}
+
+
+
+/*FULL HEADER*/
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0; /*makes the header stick fully when scrolling down*/
+  height: 3.13rem; /*69px*/
+  /*z-index: 1; */
+  background-color: black;
+  border-bottom: 0.045rem solid seashell; /*1px*/
+  align-items: center;
+}
+
+/*LOGO*/
+
+header img {
+  height: 2.27rem; /*50px*/
+  padding-left: 0.55rem; /*10px*/
+
+}
+
+/*NAV BAR*/
+
+nav {
+  text-align: right;
+  flex-grow: 1; /*creates the space between the logo and the nav bar, pushing it to the right*/
+}
+
+nav span {
+  display: inline-block;
+  padding: 0.9rem 0.45rem; /*20px (top-bottom) 10px (left-right)*/
+}
+
+
+/*when not on desktop/laptop,remove the nav bar and leave the logo only*/
+@media only screen and (max-width: 600px) {
+  nav {
+    display: none;
+  }
+  
+}
+
+/*MISSION*/
+
+#mission {
+  width: 100%;
+  background-image: url('https://content.codecademy.com/courses/freelance-1/unit-4/img-mission-background.jpg?_gl=1*1r7vsay*_ga*NjA2NzQ3MjI0Ny4xNjY0MTE3OTg2*_ga_3LRZM6TM9L*MTY3MDY4MTM4Mi41NS4xLjE2NzA2ODEzODcuMC4wLjA.');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /*display: block; -this goes out so it doesn-t interfere with the flexbox of the flex-container. It allows the text to appear in the center of the picture rather than at the top*/
+  padding-top: 3.1rem; /*70px*/
+  height: 31.8rem; /*700px*/
+}
+
+#mission .content {
+  margin: auto; /*auto levels used to center the content element*/
+  background-color: black;
+  width: 100%;
+  text-align: center;
+}
+  
+
+/*FEATURED TEA*/
+
+#featured-tea {
+  width: 100%;
+  /*margin: auto;*/ /*doesnt seem to do/break anything so i'm removing it*/
+  padding-top: 3.1rem; /*70px*/
+  padding-bottom: 3.1rem; /*70px*/
+  
+}
+
+#featured-tea h2, h4, figcaption {
+  text-align: center;
+  font-weight: bold;
+
+}
+
+#featured-tea > h4 {
+  padding-bottom: 1.8rem;
+}
+
+
+
+figcaption {
+  margin-top: 15px;
+  font-size: 0.7rem; /*16px*/
+}
+
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap; /*without this, all the photos stick to one line*/
+  /*flex-direction: row;*/ /*not needed as this is usually by default for western websites (lfr)*/
+  justify-content: center;
+  gap: 0.72rem; /*16px*/
+  list-style: none;
+}
+
+
+li {
+  flex-basis: 15.9rem; /* 350px;*/ /*this sets the size of the content box, so, of each li element*/
+}
+
+
+.image-gallery li img {
+  object-fit: cover; /*it sets how the content should be resized to fit its container; cover maintins the content's aspect ratio whule filling the entire content box, if the aspect ratio is bigger than the box, the content is clipped to fit*/
+  max-width: 100%;
+  height: auto;
+  /*vertical-align: middle;*/ /*irrelevant - this is only to align inline, inline-block and tble-cell elements; li is a block-level element*/
+  border-radius: 5px;
+}
+
+
+/*eliminate the border radius of pictures on mobile devices, also occupy the full width*/
+@media only screen and (max-width: 480px) {
+  .image-gallery li img {
+    border-radius: 0px;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/*LOCATIONS*/
+
+#locations h2 {
+  text-align: center;
+  
+}
+
+.flex-container.locations {
+  padding-top: 0.22rem; /*5px*/
+}
+
+#locations {
+  background-image: url('https://content.codecademy.com/courses/freelance-1/unit-4/img-locations-background.jpg?_gl=1*18nb7dk*_ga*NjA2NzQ3MjI0Ny4xNjY0MTE3OTg2*_ga_3LRZM6TM9L*MTY3MDc2NTA1Ny41Ni4xLjE2NzA3NjUwNjEuMC4wLjA.');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 22.7rem; /*500px*/
+  padding-top: 3.18rem; /*70px*/
+}
+
+#locations.flex-container {
+  margin: auto;
+  width: 100%;
+  
+}
+
+.location {
+  padding: 0.45rem; /*10px*/
+  margin: 0.22rem 0.9rem; /*5px top-bottom, 20px left-right*/
+  background-color: black;
+  flex-basis: 15.9rem; /*350px*/
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0.22rem; /*5px*/
+  border: 0.045rem solid seashell; /*1px*/
+  
+}
+
+
+
+.location h3, p {
+  text-align: center;
+  
+}
+
+.location p {
+  font-size: 0.72rem;
+}
+
+
+/*CONTACT*/
+
+.contact {
+  height: 9rem; /*200px*/
+  padding-top: 3.1rem; /*70px*/
+}
+
+.contact h2, h5 {
+  text-align: center;
+
+}
+
+
+/*FOOTER*/
+
+.footer h5 {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 0.45rem; /*10px*/
+}
